@@ -9,7 +9,7 @@
 	</parent>
 	<artifactId>hello-world</artifactId>
 	<packaging>war</packaging>
-	<name>basics</name>
+	<name>hello</name>
 	<description>just for fun</description>
 
 	<dependencies>
