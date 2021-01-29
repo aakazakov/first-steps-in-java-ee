@@ -8,36 +8,39 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SimpleServlet implements Servlet {
+	
+	private static final Logger logger = LoggerFactory.getLogger(SimpleServlet.class);
+	
+	private ServletConfig config;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		
+		this.config = config;		
+		logger.info("The servlet has been initialized...");
 	}
 
 	@Override
 	public ServletConfig getServletConfig() {
-		// TODO Auto-generated method stub
-		return null;
+		return config;
 	}
 
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		res.getWriter().println("<h1 style=\"color: green\">hello, world</h1>");
 	}
 
 	@Override
 	public String getServletInfo() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-		
+		logger.info("The servlet was destroyed...");
 	}
 
 }
