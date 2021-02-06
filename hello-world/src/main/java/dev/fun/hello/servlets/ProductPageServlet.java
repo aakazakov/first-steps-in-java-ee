@@ -16,7 +16,7 @@ public class ProductPageServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	private static final Logger logger = LoggerFactory.getLogger(CatalogPageServlet.class);
+	private static final Logger logger = LoggerFactory.getLogger(ProductPageServlet.class);
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
