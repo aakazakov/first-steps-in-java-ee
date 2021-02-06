@@ -21,8 +21,9 @@ public class ProductPageServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		try {
-			resp.getWriter().print("<h1>Product</h1>");
-		} catch (IOException e) {
+			getServletContext().getRequestDispatcher("/html/product.html").include(req, resp);
+			getServletContext().getRequestDispatcher("/html/menu.html").include(req, resp);
+		} catch (IOException | ServletException e) {
 			logger.info(e.getMessage());
 		}
 	}

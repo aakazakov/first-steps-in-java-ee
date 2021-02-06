@@ -19,10 +19,11 @@ public class MainPageServlet extends HttpServlet {
 	private static final Logger logger = LoggerFactory.getLogger(MainPageServlet.class);
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
-		try {
-			resp.getWriter().print("<h1>Main</h1>");
-		} catch (IOException e) {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {	
+		try {			
+			getServletContext().getRequestDispatcher("/html/main.html").include(req, resp);
+			getServletContext().getRequestDispatcher("/html/menu.html").include(req, resp);
+		} catch (IOException | ServletException e) {
 			logger.info(e.getMessage());
 		}
 	}	

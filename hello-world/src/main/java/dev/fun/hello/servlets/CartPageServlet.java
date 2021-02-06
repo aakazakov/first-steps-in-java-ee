@@ -19,10 +19,11 @@ public class CartPageServlet extends HttpServlet {
 	private static final Logger logger = LoggerFactory.getLogger(CartPageServlet.class);
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		try {
-			resp.getWriter().print("<h1>Cart</h1>");
-		} catch (IOException e) {
+			getServletContext().getRequestDispatcher("/html/cart.html").include(req, resp);
+			getServletContext().getRequestDispatcher("/html/menu.html").include(req, resp);
+		} catch (IOException | ServletException e) {
 			logger.info(e.getMessage());
 		}
 	}
