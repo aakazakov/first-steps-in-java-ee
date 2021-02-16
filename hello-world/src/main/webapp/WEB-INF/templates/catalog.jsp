@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <title>Catalog</title>
   </head>
-  <body class="container-sm">
+  <body class="container-sm d-flex flex-column align-items-center">
   	<nav class="nav py-2">
   		<c:url var="toHome" value="/home"/>
 		  <a class="nav-link" href="${toHome}">Home</a>
@@ -27,9 +27,9 @@
 					  		<img src="http://placeimg.com/150/150/tech" class="rounded img-fluid" alt="product">
 					  		<p class="pt-2"><c:out value="${product.title}" /></p>
 					  		<span class="pb-2"><c:out value="${product.price}" /></span>
-					  		<button type="button" class="btn btn-success">Add</button>
-							  <button type="button" class="btn btn-warning">Edit</button>
-							  <button type="button" class="btn btn-danger">Del</button>
+					  		<a href="#" class="btn btn-success">Add</a>
+							  <a href="#" class="btn btn-warning">Edit</a>
+							  <a href="#" class="btn btn-danger">Del</a>
 	  					</div>
 			    </div>
 		    </c:forEach>
