@@ -21,8 +21,7 @@ public class OrderPageServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException {
 		try {
-			getServletContext().getRequestDispatcher("/html/order.html").include(req, resp);
-			getServletContext().getRequestDispatcher("/html/menu.html").include(req, resp);
+			getServletContext().getRequestDispatcher("/WEB-INF/templates/order.jsp").forward(req, resp);
 		} catch (IOException | ServletException e) {
 			logger.info(e.getMessage());
 		}

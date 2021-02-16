@@ -21,8 +21,7 @@ public class CartPageServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		try {
-			getServletContext().getRequestDispatcher("/html/cart.html").include(req, resp);
-			getServletContext().getRequestDispatcher("/html/menu.html").include(req, resp);
+			getServletContext().getRequestDispatcher("/WEB-INF/templates/cart.jsp").forward(req, resp);
 		} catch (IOException | ServletException e) {
 			logger.info(e.getMessage());
 		}

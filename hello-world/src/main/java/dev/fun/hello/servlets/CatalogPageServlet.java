@@ -21,8 +21,7 @@ public class CatalogPageServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
 		try {
-			getServletContext().getRequestDispatcher("/html/catalog.html").include(req, resp);
-			getServletContext().getRequestDispatcher("/html/menu.html").include(req, resp);
+			getServletContext().getRequestDispatcher("/WEB-INF/templates/catalog.jsp").forward(req, resp);
 		} catch (IOException | ServletException e) {
 			logger.info(e.getMessage());
 		}

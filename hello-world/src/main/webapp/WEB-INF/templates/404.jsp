@@ -19,9 +19,10 @@
 		  <a class="nav-link" href="${toCart}">Cart</a>
 		</nav>
 		
-  	<c:out value="HOME" /><br>
-    <c:url var="toHome" value="/home"/>
-    <c:out value="${toHome}" />
+		<div class="text-center">
+		  <img src="http://placekitten.com/200/300" class="rounded" alt="404">
+		  <p class="text-xl">404</p>
+		</div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   </body>

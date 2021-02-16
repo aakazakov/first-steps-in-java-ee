@@ -21,7 +21,7 @@ public class PageNotFoundServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			getServletContext().getRequestDispatcher("/html/404.html").include(req, resp);
+			getServletContext().getRequestDispatcher("/WEB-INF/templates/404.jsp").forward(req, resp);
 		} catch (ServletException | IOException e) {
 			logger.info(e.getMessage());
 		}
