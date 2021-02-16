@@ -19,9 +19,22 @@
 		  <a class="nav-link" href="${toCart}">Cart</a>
 		</nav>
 		
-  	<c:out value="CATALOG" /><br>
-    <c:url var="toCatalog" value="/catalog"/>
-    <c:out value="${toCatalog}" />
+		<div class="container d-flex justify-content-center">
+		  <div class="row row-cols-lg-6 g-2 row-cols-sm-2 row-cols-md-4">
+		  	<c:forEach var="product" items="${requestScope.products	}">
+			    <div class="col">
+			    		<div class="container p-2 text-center d-flex flex-column bg-light" style="max-width: 10vw">
+					  		<img src="http://placeimg.com/150/150/tech" class="rounded img-fluid" alt="product">
+					  		<p class="pt-2"><c:out value="${product.title}" /></p>
+					  		<span class="pb-2"><c:out value="${product.price}" /></span>
+					  		<button type="button" class="btn btn-success">Add</button>
+							  <button type="button" class="btn btn-warning">Edit</button>
+							  <button type="button" class="btn btn-danger">Del</button>
+	  					</div>
+			    </div>
+		    </c:forEach>
+		  </div>
+		</div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   </body>
