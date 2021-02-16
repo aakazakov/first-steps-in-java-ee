@@ -7,10 +7,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Home</title>
+    <title>Order</title>
   </head>
-  <body>
-  	<nav class="nav">
+  <body class="container-sm">
+  	<nav class="nav py-2">
   		<c:url var="toHome" value="/home"/>
 		  <a class="nav-link" href="${toHome}">Home</a>
 		  <c:url var="toCatalog" value="/catalog"/>
