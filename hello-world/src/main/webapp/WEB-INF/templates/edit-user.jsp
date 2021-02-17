@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>Catalog</title>
+    <title>edit-product</title>
   </head>
   <body class="container-sm d-flex flex-column align-items-center">
   	<nav class="nav py-2">
@@ -19,33 +19,29 @@
 		  <a class="nav-link" href="${toCart}">Cart</a>
 		</nav>
 		
-		<a href="#" class="btn btn-success my-3 py-2 px-3">Add</a>
-		<table class="table table-striped">
-		  <thead>
-		    <tr>
-		      <th scope="col">ID</th>
-		      <th scope="col">Name</th>
-		      <th scope="col">Role</th>
-		      <th scope="col">Action</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		  	<c:forEach var="user" items="${requestScope.users}">
-			    <tr>
-			      <th scope="row"><c:out value="${user.id}" /></th>
-			      <td><c:out value="${user.name}" /></td>
-			      <td><c:out value="${user.role}" /></td>
-			      <td>
-			      	<c:url var="editUser" value="/users/edit">
-			      		<c:param name="id" value="${user.id}" />
-			      	</c:url>
-			      	<a href="${editUser}" class="btn btn-warning">Edit</a>
-			      	<a href="#" class="btn btn-danger ml-2">Del</a>
-			      </td>
-			    </tr>
-		  	</c:forEach>
-		  </tbody>
-		</table>
+		<c:url var="submitURL" value="/users/edit" />
+		<form action="${submitURL}" class="mt-5" method="POST">
+			<input type="hidden" id="id" name="id" value="${user.id}">
+		  <div class="row mb-3">
+		    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="inputName" name="name" value="${user.name}" placeholder="${user.name}">
+		    </div>
+		  </div>
+		  <div class="row mb-3">
+		    <label for="inputRole" class="col-sm-2 col-form-label">Role</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="inputRole" name="role" value="${user.role}" placeholder="${user.role}">
+		    </div>
+		  </div>
+		  <div class="row mb-3">
+		    <label for="inputPass" class="col-sm-2 col-form-label">Role</label>
+		    <div class="col-sm-10">
+		      <input type="password" class="form-control" id="inputPass" name="password" value="${user.password}" placeholder="...">
+		    </div>
+		  </div>
+		  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+		</form>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   </body>
