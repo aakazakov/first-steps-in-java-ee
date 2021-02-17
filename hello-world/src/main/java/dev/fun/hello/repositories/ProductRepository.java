@@ -15,9 +15,9 @@ public class ProductRepository {
 
 	private static final Logger logger = LoggerFactory.getLogger(ProductRepository.class);
 	
-	private AtomicLong ID;
+	private final AtomicLong ID;
 	
-	private Map<Long, Product> repo;
+	private final Map<Long, Product> repo;
 	
 	public ProductRepository() {
 		repo = new HashMap<>();
