@@ -19,25 +19,23 @@
 		  <a class="nav-link" href="${toCart}">Cart</a>
 		</nav>
 		
-		<div class="container d-flex justify-content-center">
-		  <div class="row row-cols-lg-6 g-2 row-cols-sm-2 row-cols-md-4">
-		  	<c:forEach var="product" items="${requestScope.products	}">
-			    <div class="col">
-			    		<div class="container p-2 text-center d-flex flex-column bg-light" style="max-width: 10vw">
-					  		<img src="http://placeimg.com/150/150/tech" class="rounded img-fluid" alt="product">
-					  		<i class="pt-2"><c:out value="${product.title}" /></i>
-					  		<strong class="pb-2"><c:out value="${product.price}" /></strong>
-					  		<a href="#" class="btn btn-success">Add</a>
-					  		<c:url var="editProduct" value="/product/edit">
-					  			<c:param name="id" value="${product.id}" />
-					  		</c:url>
-							  <a href="${editProduct}" class="btn btn-warning">Edit</a>
-							  <a href="#" class="btn btn-danger">Del</a>
-	  					</div>
-			    </div>
-		    </c:forEach>
+		<c:url var="submitURL" value="/product" />
+		<form action="${submitURL}" class="mt-5" method="POST">
+			<input type="hidden" id="id" name="id" value="${product.id}">
+		  <div class="row mb-3">
+		    <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="inputTitle" name="title" value="${product.title}" placeholder="${product.title}">
+		    </div>
 		  </div>
-		</div>
+		  <div class="row mb-3">
+		    <label for="inputPrice" class="col-sm-2 col-form-label">Price</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" id="inputPrice" name="price" value="${product.price}" placeholder="${product.price}">
+		    </div>
+		  </div>
+		  <button type="submit" class="btn btn-primary mt-2">Submit</button>
+		</form>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
   </body>
