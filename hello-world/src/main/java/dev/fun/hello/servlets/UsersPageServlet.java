@@ -19,7 +19,7 @@ public class UsersPageServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	private static final Logger logger = LoggerFactory.getLogger(CatalogPageServlet.class);
+	private static final Logger logger = LoggerFactory.getLogger(UsersPageServlet.class);
 	
 	private UserRepository userRepository;
 	
