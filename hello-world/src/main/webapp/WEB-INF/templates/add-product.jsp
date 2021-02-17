@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <title>edit-product</title>
+    <title>add-product</title>
   </head>
   <body class="container-sm d-flex flex-column align-items-center">
   	<nav class="nav py-2">
@@ -19,19 +19,18 @@
 		  <a class="nav-link" href="${toCart}">Cart</a>
 		</nav>
 		
-		<c:url var="submitURL" value="/product/edit" />
+		<c:url var="submitURL" value="/product/add" />
 		<form action="${submitURL}" class="mt-5" method="POST">
-			<input type="hidden" id="id" name="id" value="${product.id}">
 		  <div class="row mb-3">
 		    <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputTitle" name="title" value="${product.title}" placeholder="${product.title}">
+		      <input type="text" class="form-control" id="inputTitle" name="title" placeholder="...">
 		    </div>
 		  </div>
 		  <div class="row mb-3">
 		    <label for="inputPrice" class="col-sm-2 col-form-label">Price</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="inputPrice" name="price" value="${product.price}" placeholder="${product.price}">
+		      <input type="text" class="form-control" id="inputPrice" name="price" placeholder="...">
 		    </div>
 		  </div>
 		  <button type="submit" class="btn btn-primary mt-2">Submit</button>

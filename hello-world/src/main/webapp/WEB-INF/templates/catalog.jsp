@@ -19,6 +19,8 @@
 		  <a class="nav-link" href="${toCart}">Cart</a>
 		</nav>
 		
+	  <c:url var="addProduct" value="/product/add" />
+    <a href="${addProduct}" class="btn btn-success my-2 py-2 px-3">Add</a>
 		<div class="container d-flex justify-content-center">
 		  <div class="row row-cols-lg-6 g-2 row-cols-sm-2 row-cols-md-4">
 		  	<c:forEach var="product" items="${requestScope.products	}">
@@ -27,7 +29,6 @@
 					  		<img src="http://placeimg.com/150/150/tech" class="rounded img-fluid" alt="product">
 					  		<i class="pt-2"><c:out value="${product.title}" /></i>
 					  		<strong class="pb-2"><c:out value="${product.price}" /></strong>
-					  		<a href="#" class="btn btn-success">Add</a>
 					  		<c:url var="editProduct" value="/product/edit">
 					  			<c:param name="id" value="${product.id}" />
 					  		</c:url>

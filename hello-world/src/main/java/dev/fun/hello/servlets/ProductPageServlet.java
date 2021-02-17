@@ -44,6 +44,8 @@ public class ProductPageServlet extends HttpServlet {
 				Product p = productRepository.get(id);
 				req.setAttribute("product", p);
 				getServletContext().getRequestDispatcher("/WEB-INF/templates/edit-product.jsp").forward(req, resp);
+			} else if (req.getPathInfo().equals("/add")) {
+				getServletContext().getRequestDispatcher("/WEB-INF/templates/add-product.jsp").forward(req, resp);
 			}
 		} catch (IOException | ServletException e) {
 			logger.info(e.getMessage());
@@ -54,15 +56,28 @@ public class ProductPageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		long id;
 		float price;
-		try {
-			id = Long.parseLong(req.getParameter("id"));
-			price = Float.parseFloat(req.getParameter("price"));
-		} catch (NumberFormatException e) {
-			resp.setStatus(400);
-			return;
+		String title;
+		Product p = null;
+		if (req.getPathInfo().equals("/edit")) {
+			try {
+				id = Long.parseLong(req.getParameter("id"));
+				price = Float.parseFloat(req.getParameter("price"));
+			} catch (NumberFormatException e) {
+				resp.setStatus(400);
+				return;
+			}
+			title = req.getParameter("title");
+			p = new Product(id, title, price);
+		} else if (req.getPathInfo().equals("/add")) {
+			try {
+				price = Float.parseFloat(req.getParameter("price"));
+			} catch (NumberFormatException e) {
+				resp.setStatus(400);
+				return;
+			}
+			title = req.getParameter("title");
+			p = new Product(title, price);
 		}
-		String title = req.getParameter("title");
-		Product p = new Product(id, title, price);
 		productRepository.add(p);
 		try {
 			resp.sendRedirect(getServletContext().getContextPath() + "/catalog");
