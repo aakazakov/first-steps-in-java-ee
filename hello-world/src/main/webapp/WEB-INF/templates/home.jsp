@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <title>Home</title>
   </head>
-  <body class="container-sm">
+  <body class="container-sm d-flex flex-column align-items-center">
   	<nav class="nav py-2">
   		<c:url var="toHome" value="/home"/>
 		  <a class="nav-link" href="${toHome}">Home</a>

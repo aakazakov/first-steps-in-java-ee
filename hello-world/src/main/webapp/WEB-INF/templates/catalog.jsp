@@ -25,8 +25,8 @@
 			    <div class="col">
 			    		<div class="container p-2 text-center d-flex flex-column bg-light" style="max-width: 10vw">
 					  		<img src="http://placeimg.com/150/150/tech" class="rounded img-fluid" alt="product">
-					  		<p class="pt-2"><c:out value="${product.title}" /></p>
-					  		<span class="pb-2"><c:out value="${product.price}" /></span>
+					  		<i class="pt-2"><c:out value="${product.title}" /></i>
+					  		<strong class="pb-2"><c:out value="${product.price}" /></strong>
 					  		<a href="#" class="btn btn-success">Add</a>
 							  <a href="#" class="btn btn-warning">Edit</a>
 							  <a href="#" class="btn btn-danger">Del</a>
