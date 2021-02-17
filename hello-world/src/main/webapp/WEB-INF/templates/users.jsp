@@ -40,7 +40,10 @@
 			      		<c:param name="id" value="${user.id}" />
 			      	</c:url>
 			      	<a href="${editUser}" class="btn btn-warning">Edit</a>
-			      	<a href="#" class="btn btn-danger ml-2">Del</a>
+			      	<c:url var="deleteUser" value="/users/delete">
+			      		<c:param name="id" value="${user.id}" />
+			      	</c:url>
+			      	<a href="${deleteUser}" class="btn btn-danger ml-2">Del</a>
 			      </td>
 			    </tr>
 		  	</c:forEach>

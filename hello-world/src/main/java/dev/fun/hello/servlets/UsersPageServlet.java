@@ -52,6 +52,20 @@ public class UsersPageServlet extends HttpServlet {
 			} catch (IOException | ServletException e) {
 				logger.info(e.getMessage());
 			}
+		} else if (req.getPathInfo().equals("/delete")) {
+			long id;
+			try {
+				id = Long.parseLong(req.getParameter("id"));
+			} catch (NumberFormatException e) {
+				resp.setStatus(400);
+				return;
+			}
+			userRepository.delete(id);
+			try {
+				resp.sendRedirect(getServletContext().getContextPath() + "/users");
+			} catch (IOException | IllegalStateException e) {
+				resp.setStatus(500);
+			}
 		}
 	}
 	
