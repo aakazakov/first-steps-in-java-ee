@@ -66,6 +66,8 @@ public class UsersPageServlet extends HttpServlet {
 			} catch (IOException | IllegalStateException e) {
 				resp.setStatus(500);
 			}
+		} else if (req.getPathInfo().equals("/add")) {
+			getServletContext().getRequestDispatcher("/WEB-INF/templates/add-user.jsp").forward(req, resp);
 		}
 	}
 	
@@ -81,6 +83,8 @@ public class UsersPageServlet extends HttpServlet {
 				return;
 			}
 			u = new User(id, req.getParameter("name"), req.getParameter("role"), req.getParameter("password"));
+		} else if (req.getPathInfo().equals("/add")) {
+			u = new User(req.getParameter("name"), req.getParameter("role"), req.getParameter("password"));
 		}
 		
 		userRepository.add(u);
