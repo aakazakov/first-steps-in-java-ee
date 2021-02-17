@@ -40,4 +40,7 @@ public class ProductRepository {
 		return new ArrayList<>(repo.values());
 	}
 	
+	public void delete(Long id) {
+		repo.remove(id);
+	}
 }

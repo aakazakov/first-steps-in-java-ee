@@ -22,7 +22,7 @@
 	  <c:url var="addProduct" value="/product/add" />
     <a href="${addProduct}" class="btn btn-success my-2 py-2 px-3">Add</a>
 		<div class="container d-flex justify-content-center">
-		  <div class="row row-cols-lg-6 g-2 row-cols-sm-2 row-cols-md-4">
+		  <div class="row g-2">
 		  	<c:forEach var="product" items="${requestScope.products	}">
 			    <div class="col">
 			    		<div class="container p-2 text-center d-flex flex-column bg-light" style="max-width: 10vw">
@@ -33,7 +33,10 @@
 					  			<c:param name="id" value="${product.id}" />
 					  		</c:url>
 							  <a href="${editProduct}" class="btn btn-warning">Edit</a>
-							  <a href="#" class="btn btn-danger">Del</a>
+					  		<c:url var="deleteProduct" value="/product/delete">
+					  			<c:param name="id" value="${product.id}" />
+					  		</c:url>
+							  <a href="${deleteProduct}" class="btn btn-danger">Del</a>
 	  					</div>
 			    </div>
 		    </c:forEach>

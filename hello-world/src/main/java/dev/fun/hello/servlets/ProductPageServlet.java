@@ -46,6 +46,20 @@ public class ProductPageServlet extends HttpServlet {
 				getServletContext().getRequestDispatcher("/WEB-INF/templates/edit-product.jsp").forward(req, resp);
 			} else if (req.getPathInfo().equals("/add")) {
 				getServletContext().getRequestDispatcher("/WEB-INF/templates/add-product.jsp").forward(req, resp);
+			} else if (req.getPathInfo().equals("/delete")) {
+				long id;
+				try {
+					id = Long.parseLong(req.getParameter("id"));
+				} catch (NumberFormatException e) {
+					resp.setStatus(400);
+					return;
+				}
+				productRepository.delete(id);
+				try {
+					resp.sendRedirect(getServletContext().getContextPath() + "/catalog");
+				} catch (IOException | IllegalStateException e) {
+					resp.setStatus(500);
+				}
 			}
 		} catch (IOException | ServletException e) {
 			logger.info(e.getMessage());
