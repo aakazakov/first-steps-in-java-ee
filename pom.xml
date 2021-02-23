@@ -15,5 +15,6 @@
 	</properties>
 	<modules>
 		<module>hello-world</module>
+		<module>hello-jsf</module>
 	</modules>
 </project>
