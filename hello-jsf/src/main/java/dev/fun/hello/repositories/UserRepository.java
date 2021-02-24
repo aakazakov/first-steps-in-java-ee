@@ -7,12 +7,14 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import dev.fun.hello.entities.Product;
 import dev.fun.hello.entities.User;
 
 @Named
@@ -30,6 +32,15 @@ public class UserRepository implements Serializable {
 		repo = new ConcurrentHashMap<>();
 		ID = new AtomicLong(0L);
 		logger.info(getClass().getSimpleName() + " bean has been created");
+	}
+
+	@PostConstruct
+	public void fillWithData() {
+		add(new User("User1", "pass1", "Admin"));
+		add(new User("User2", "pass2", "Manager"));
+		add(new User("User3", "pass3", "Client"));
+		add(new User("User4", "pass4", "Client"));
+
 	}
 	
 	public void add(User u) {
