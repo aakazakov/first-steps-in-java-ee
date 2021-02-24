@@ -1,9 +1,10 @@
 package dev.fun.hello.repositories;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.annotation.PostConstruct;
@@ -17,7 +18,9 @@ import dev.fun.hello.entities.Product;
 
 @Named
 @ApplicationScoped
-public class ProductRepository {
+public class ProductRepository implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	private static final Logger logger = LoggerFactory.getLogger(ProductRepository.class);
 
@@ -26,8 +29,9 @@ public class ProductRepository {
 	private final Map<Long, Product> repo;
 
 	public ProductRepository() {
-		repo = new HashMap<>();
+		repo = new ConcurrentHashMap<>();
 		ID = new AtomicLong(0L);
+		logger.info(getClass().getSimpleName() + " bean has been created");
 	}
 	
 	@PostConstruct
