@@ -14,7 +14,6 @@ import javax.inject.Named;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dev.fun.hello.entities.Product;
 import dev.fun.hello.entities.User;
 
 @Named
