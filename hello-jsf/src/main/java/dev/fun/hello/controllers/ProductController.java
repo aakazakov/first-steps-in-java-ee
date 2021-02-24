@@ -34,21 +34,21 @@ public class ProductController implements Serializable {
 	
 	public String create() {
 		product = new Product();
-		return "/templates/product-form?faces-redirect-true";
+		return "/templates/product-form.xhtml?faces-redirect-true";
 	}
 	
 	public String update(Product p) {
 		product = p;
-		return "/templates/product-form?faces-redirect-true";
+		return "/templates/product-form.xhtml?faces-redirect-true";
 	}
 	
 	public void delete(Product p) {
 		productRepository.delete(p.getId());
 	}
 	
-	public String saveOrUpdate(Product p) {
-		productRepository.add(p);
-		return "/templates/product.xhtml?faces-redirect-true";
+	public String saveOrUpdate() {
+		productRepository.add(product);
+		return "/templates/catalog.xhtml?faces-redirect-true";
 	}
 
 }
