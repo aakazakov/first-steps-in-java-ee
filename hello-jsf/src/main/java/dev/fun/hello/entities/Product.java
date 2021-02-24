@@ -45,4 +45,9 @@ public class Product {
 		
 	}
 	
+	@Override
+	public String toString() {
+		return String.format("%s_{id: %d, title: %s, price: %d}", getClass().getSimpleName(), id, title, price);
+	}
+	
 }
