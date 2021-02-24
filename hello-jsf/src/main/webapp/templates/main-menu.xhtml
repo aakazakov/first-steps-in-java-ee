@@ -1,12 +1,14 @@
-	<ul class="nav justify-content-center">
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Home</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Catalog</a>
-	  </li>
-	  <li class="nav-item">
-	    <a class="nav-link" href="#">Cart</a>
-	  </li>
-	</ul>
+	<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html">
+		<ul class="nav justify-content-center">
+		  <li class="nav-item">
+		  	<h:link styleClass="nav-link" value="Home"  outcome="hello.xhtml" />
+		  </li>
+		  <li class="nav-item">
+		    <h:link styleClass="nav-link" value="Catalog"  outcome="catalog.xhtml" />
+		  </li>
+		  <li class="nav-item">
+		    <h:link styleClass="nav-link" value="Cart"  outcome="cart.xhtml" />
+		  </li>
+		</ul>
+	</ui:composition>
 	
