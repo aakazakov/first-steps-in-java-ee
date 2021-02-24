@@ -14,20 +14,16 @@
 	      crossorigin="anonymous"/>
 	<link rel="stylesheet"
 				href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
-	<title>Catalog</title>
+	<title>Cart</title>
 </h:head>
 
 <h:body>
 	<ui:include src="/templates/main-menu.xhtml" />
 	
 	<div class="container">
-		<h:form id="productForm" class="row p-3">
-      <div class="col-12">
-		    <h:commandButton value="Add Product" styleClass="btn btn-primary"
-		                     action="#{productController.create()}"/>
-	    </div>
+		<h:form id="cartForm" class="row p-3">
 	    <div class="col-12">
-	    	<h:dataTable value="#{productController.allProducts}" var="product"
+	    	<h:dataTable value="#{cartController.allProducts}" var="product"
                                  styleClass="table table-bordered my-2">
 					<h:column>
 						<f:facet name="header">Id</f:facet>
@@ -43,14 +39,10 @@
 					</h:column>
 					<h:column>
 						<f:facet name="header">Action</f:facet>
-						<h:commandButton value="Edit" styleClass="btn btn-warning ml-3"
-                             action="#{productController.update(product)}"/>
             <h:commandButton value="Delete" styleClass="btn btn-danger ml-3"
-                             action="#{productController.delete(product)}">
-            	<f:ajax event="click" render="productForm"/>
+                             action="#{cartController.removeFromCart(product)}">
+            	<f:ajax event="click" render="cartForm"/>
             </h:commandButton>
-            <h:commandButton value="Add to cart" styleClass="btn btn-success ml-3"
-                             action="#{cartController.addToCart(product)}"/>
 					</h:column>
 				</h:dataTable>
 	    </div>
