@@ -1,0 +1,41 @@
+<html lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" 
+				content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<link rel="stylesheet" 
+				href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	      crossorigin="anonymous"/>
+	<link rel="stylesheet"
+				href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
+	<title>Product-form</title>
+</h:head>
+
+<h:body>
+	<ui:include src="/templates/main-menu.xhtml" />
+	
+	<form>
+		<input type="hidden" id="id" name="id"/>
+	  <div class="mb-3">
+	    <label for="productTitle" class="form-label">Title</label>
+	    <input type="text" class="form-control" id="productTitle"/>
+	  </div>
+	  <div class="mb-3">
+	    <label for="prodoctPrice" class="form-label">Password</label>
+	    <input type="text" class="form-control" id="prodoctPrice" />
+	  </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+					integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+					crossorigin="anonymous"></script>
+</h:body>
+
+</html>
