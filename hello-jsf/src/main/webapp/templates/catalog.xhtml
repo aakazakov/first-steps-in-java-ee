@@ -1,0 +1,65 @@
+<html lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" 
+				content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+	<link rel="stylesheet" 
+				href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	      crossorigin="anonymous"/>
+	<link rel="stylesheet"
+				href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"/>
+	<title>Product-form</title>
+</h:head>
+
+<h:body>
+	<ui:include src="/templates/main-menu.xhtml" />
+	
+	<div class="container">
+		<div class="row p-3">
+      <div class="col-12">
+		    <h:commandButton value="Add Product" styleClass="btn btn-primary"
+		                     action="#{productController.create()}"/>
+	    </div>
+	    <div class="col-12">
+	    	<h:dataTable value="#{productController.allProducts}" var="product"
+                                 styleClass="table table-bordered my-2">
+					<h:column>
+						<f:facet name="header">Id</f:facet>
+						#{product.id}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Title</f:facet>
+						#{product.title}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Price</f:facet>
+						#{product.price}
+					</h:column>
+					<h:column>
+						<f:facet name="header">Action</f:facet>
+						<h:commandButton value="Edit" styleClass="btn btn-warning ml-3"
+                             action="#{productController.update(product)}"/>
+            <h:commandButton value="Delete" styleClass="btn btn-danger ml-3"
+                             action="#{productController.delete(product)}">
+            	<f:ajax event="click" render="productForm"/>
+            </h:commandButton>
+            <h:commandButton value="Add to cart" styleClass="btn btn-success ml-3"
+                             action="#"/>
+					</h:column>
+				</h:dataTable>
+	    </div>
+		</div>
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
+					integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+					crossorigin="anonymous"></script>
+</h:body>
+
+</html>
