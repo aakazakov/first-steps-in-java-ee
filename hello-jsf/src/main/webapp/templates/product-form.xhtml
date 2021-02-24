@@ -20,18 +20,23 @@
 <h:body>
 	<ui:include src="/templates/main-menu.xhtml" />
 	
-	<form>
-		<input type="hidden" id="id" name="id"/>
-	  <div class="mb-3">
-	    <label for="productTitle" class="form-label">Title</label>
-	    <input type="text" class="form-control" id="productTitle"/>
-	  </div>
-	  <div class="mb-3">
-	    <label for="prodoctPrice" class="form-label">Password</label>
-	    <input type="text" class="form-control" id="prodoctPrice" />
-	  </div>
-	  <button type="submit" class="btn btn-primary">Submit</button>
-	</form>
+	<div class="container">
+		<h:form>
+			<input type="hidden" id="id" name="id"/>
+		  <div class="form-group">
+		    <label for="productTitle" class="form-label">Title</label>
+		    <h:inputText class="form-control" id="productTitle" 
+		    			       value="#{productController.product.title}" placeholder="Title" />
+		  </div>
+		  <div class="form-group">
+		    <label for="productPrice" class="form-label">Price</label>
+		    <h:inputText p:type="number" class="form-control" id="productPrice"
+		    			 	     value="#{productController.product.price}" placeholder="Price" />
+		  </div>
+		  <h:commandButton value="Submit" styleClass="btn btn-primary" 
+		  								 action="#{productController.saveOrUpdate()}" />
+		</h:form>
+	</div> 
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
 					integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"

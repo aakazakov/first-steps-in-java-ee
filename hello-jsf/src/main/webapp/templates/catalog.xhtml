@@ -21,7 +21,7 @@
 	<ui:include src="/templates/main-menu.xhtml" />
 	
 	<div class="container">
-		<div class="row p-3">
+		<h:form id="productForm" class="row p-3">
       <div class="col-12">
 		    <h:commandButton value="Add Product" styleClass="btn btn-primary"
 		                     action="#{productController.create()}"/>
@@ -54,7 +54,7 @@
 					</h:column>
 				</h:dataTable>
 	    </div>
-		</div>
+		</h:form>
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" 
